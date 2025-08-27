@@ -90,15 +90,17 @@ function containsDuplicate2(nums) {
     NOTE: Java solution set 
 
     Java doesn't use let. It is a strict language so the variable type needs to be declared. Instead of using the method "has" we use "contains"
+    instead of "new Set" in Java it is HashSet "new HashSet"
 
+    So... first, create a HashSet. Then we need to loop through the nums array. We want to search for the value of each index, therefore, we are going to set an int type variable called num to the value of the element being looped through. Next, we write a conditional that checks to see if the number is already in the set. If it is, we return true. If not, then we want to add the number to the HashSet and continue the loop. If we get through the loop without finding a duplicate number we return false.
 
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         
-        Set<Interger> set = new HashSet<>(); 
+        Set<Integer> set = new HashSet<>(); 
 
         for (int i = 0; i < nums.length; i++){
-            let int num = nums[i];
+            int num = nums[i];
 
             if (set.contains(num)){
                 return true;
