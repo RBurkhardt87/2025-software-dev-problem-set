@@ -48,7 +48,7 @@ let nums2 = [1,2,3,4]
 let nums3 = [1,1,1,3,3,4,3,2,4,2]
 
 function containsDuplicate(nums) {
-            let numsHashMap = new Map();
+    let numsHashMap = new Map();
 
         for (let num of nums){
             if (!numsHashMap.has(num)) {
@@ -63,3 +63,50 @@ function containsDuplicate(nums) {
 console.log(containsDuplicate(nums1));
 console.log(containsDuplicate(nums2));
 console.log(containsDuplicate(nums3));
+
+
+
+
+// I can also just use a standard for loop for the solution and I can just use a Set as well since we are just checking for a duplicate and not an index or anything
+
+function containsDuplicate2(nums) {
+    let set = new Set();
+
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+
+        if (set.has(num)){
+            return true;
+        }
+        set.add(num);
+    }
+    return false;
+}
+
+
+
+
+/*
+    NOTE: Java solution set 
+
+    Java doesn't use let. It is a strict language so the variable type needs to be declared. Instead of using the method "has" we use "contains"
+
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+        Set<Interger> set = new HashSet<>(); 
+
+        for (int i = 0; i < nums.length; i++){
+            let int num = nums[i];
+
+            if (set.contains(num)){
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
+}
+
+*/

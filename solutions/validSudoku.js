@@ -74,6 +74,57 @@ let board2 =
 ,[".",".",".",".","8",".",".","7","9"]];
 
 
+
+//NOTE: Found this combo to be more cohesive and understandable. Takes parts of a few different methods...
+
+function isAValidSudoku(board) {
+
+
+    //check the row
+        for (let row = 0; row < 9; row++) {
+            let seen = new Set();
+            for (let i = 0; i < 9; i++) {
+                if (board[row][i] === '.') continue;
+                if (seen.has(board[row][i])) return false;
+                seen.add(board[row][i]);
+            }
+        }
+        
+        //check the column
+        for (let col = 0; col < 9; col++) {
+            let seen = new Set();
+            for (let i = 0; i < 9; i++) {
+                if (board[i][col] === '.') continue;
+                if (seen.has(board[i][col])) return false;
+                seen.add(board[i][col]);
+            }
+        }
+        
+
+        //check the 3x3 grid
+        for (let boxRow = 0; boxRow < 9; boxRow += 3) {
+            for (let boxCol = 0; boxCol < 9; boxCol += 3) {
+                let seen = new Set();
+                for (let row = 0; row < 3; row++) {
+                    for (let col = 0; col < 3; col++) {
+                        let num = board[boxRow + row][boxCol + col];
+                        if (num === ".") continue;
+                        if (seen.has(num)) return false;
+                        seen.add(num);
+                    }
+                }
+            }
+        }   
+        
+        return true;
+};
+
+
+
+
+
+
+
 function isValidSudoku(board) {
 
     for (let row of board) {
