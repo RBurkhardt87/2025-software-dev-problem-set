@@ -104,6 +104,8 @@ After you have the new arrays where each character of the words are their own el
 
 And lastly you must compare the sorted arrays by using equals method and passing in the sorted arrays to be compared. We are returning this equal method because it will return true or false based on if it is equal or not. 
 
+NOTE: when checking the length of a string in Java you add "()" at the end
+
 
 
 class Solution {
